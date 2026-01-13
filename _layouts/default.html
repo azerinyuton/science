@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <style>
+        :root { --primary: #1abc9c; --dark: #2c3e50; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f7f6; color: #333; line-height: 1.6; }
+        header { background: var(--dark); color: white; padding: 2rem 5%; text-align: center; }
+        nav ul { list-style: none; padding: 0; }
+        nav ul li { display: inline; margin: 0 15px; }
+        nav ul li a { color: white; text-decoration: none; font-weight: bold; }
+        .container { max-width: 900px; margin: 20px auto; padding: 20px; }
+        .post-card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .post-card h2 a { color: var(--dark); text-decoration: none; }
+        .post-card h2 a:hover { color: var(--primary); }
+        .read-more { background: var(--primary); color: white; padding: 8px 18px; border-radius: 5px; text-decoration: none; display: inline-block; margin-top: 10px; }
+        footer { text-align: center; padding: 20px; color: #777; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SCIENCE PORTAL</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        {{ content }}
+    </div>
+    <footer>© 2026 Science Portal - Azəri Nyuton</footer>
+</body>
+</html>
