@@ -12,22 +12,16 @@ title: Home
 <div style="display: flex; align-items: center; margin-bottom: 10px; gap: 15px;">
     <span style="font-size: 0.85rem; color: #888;">📅 {{ post.date | date: "%B %d, %Y" }}</span>
     
-    <span style="font-size: 0.85rem; color: #888; margin-left: 10px; display: inline-flex; align-items: center;">
-    | <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://azerinyuton.github.io{{ post.url }}&count_bg=%23ffffff00&title_bg=%23ffffff00&icon=&icon_color=%23E7E7E7&title=Views&edge_flat=true" 
-         style="height: 20px; border: none; box-shadow: none !important; margin: 0 !important; filter: contrast(0.5);" 
-         alt="Views">
+    <span style="font-size: 0.85rem; color: #888; margin-left: 10px;">
+    | <i class="views-icon">👁️</i> <span class="waline-pageview-count" data-path="{{ post.url }}">...</span> Views
 </span>
 
+<script src='https://cdn.jsdelivr.net/npm/@waline/client/dist/pageview.js'></script>
 <script>
-    // Bu kod səhifəni yeniləmədən rəqəmi təhlükəsiz şəkildə çəkir
-    fetch('https://api.countapi.xyz/hit/azerinyuton.github.io/{{ post.url | slugify }}')
-        .then(res => res.json())
-        .then(res => {
-            document.getElementById('view_{{ post.url | slugify }}').innerText = res.value;
-        })
-        .catch(() => {
-            document.getElementById('view_{{ post.url | slugify }}').innerText = '1';
-        });
+  walinePageView({
+    serverURL: 'https://waline-test-3f8id7p82-azerinyuton.vercel.app', // Bu müvəqqəti test serveridir
+    update: true
+  });
 </script>
 </div>
 
@@ -35,6 +29,7 @@ title: Home
     <a href="{{ post.url | relative_url }}" class="read-more">Read Article →</a>
 </div>
 {% endfor %}
+
 
 
 
