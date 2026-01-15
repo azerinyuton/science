@@ -1,128 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }}</title>
+    <title>{{ page.title }} | Science Portal</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     <style>
-        :root { --primary: #1abc9c; --dark: #2c3e50; }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f7f6; color: #333; line-height: 1.6; }
-        header { background: var(--dark); color: white; padding: 2rem 5%; text-align: center; }
-        nav ul { list-style: none; padding: 0; }
-        nav ul li { display: inline; margin: 0 15px; }
-        nav ul li a { color: white; text-decoration: none; font-weight: bold; }
-        .container { max-width: 900px; margin: 20px auto; padding: 20px; }
-        .post-card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 20px; }
-        .post-card h2 a { color: var(--dark); text-decoration: none; }
-        .post-card h2 a:hover { color: var(--primary); }
-        .read-more { background: var(--primary); color: white; padding: 8px 18px; border-radius: 5px; text-decoration: none; display: inline-block; margin-top: 10px; }
-        footer { text-align: center; padding: 20px; color: #777; font-size: 0.9rem; }
-        .view-count {
-    font-size: 0.85rem;
-    color: #777;
-    margin-left: 10px;
-    display: inline-flex;
-    align-items: center;
-}
-.view-count img {
-    margin: 0 5px 0 0 !important; /* İkon üçün boşluq */
-    box-shadow: none !important; /* İkona kölgə verməsin */
-    display: inline !important;
-}
-        .container {
-    padding-top: 40px !important; /* Yuxarıdan boşluq veririk */
-}
-      /* Mobil və Ümumi Səliqə */
-/* Sürüşməni önləyən əsas qaydalar */
-* {
-    box-sizing: border-box;
-}
+        :root { --primary: #2A9D8F; --dark: #264653; --light: #F4F1DE; }
+        * { box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; padding: 0; line-height: 1.6; color: #333; 
+            overflow-x: hidden; width: 100%;
+        }
+        header { background: var(--dark); color: white; padding: 60px 20px; text-align: center; }
+        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 2px; }
+        nav { margin-top: 20px; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; opacity: 0.8; }
+        nav a:hover { opacity: 1; color: var(--primary); }
+        
+        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        
+        /* Search Box */
+        .search-container { margin-bottom: 40px; }
+        #search-input { 
+            width: 100%; padding: 12px 20px; border: 2px solid var(--primary); 
+            border-radius: 25px; outline: none; font-size: 1rem;
+        }
+        #results-container { list-style: none; padding: 0; }
+        #results-container li { background: #f9f9f9; margin-bottom: 5px; padding: 10px; border-radius: 8px; }
 
-html, body {
-    overflow-x: hidden;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
+        /* Post Cards */
+        .post-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 30px; border-left: 5px solid var(--primary); }
+        .post-card h2 { margin-top: 0; color: var(--dark); }
+        .post-card h2 a { text-decoration: none; color: inherit; }
+        .meta { font-size: 0.85rem; color: #888; margin-bottom: 15px; }
+        .read-more { display: inline-block; margin-top: 15px; color: var(--primary); font-weight: bold; text-decoration: none; }
 
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-/* Mobil Cihazlar Üçün Tam Uyğunluq */
-@media screen and (max-width: 768px) {
-    header h1 {
-        font-size: 1.6rem !important;
-        padding: 10px;
-    }
-    
-    #search-input {
-        width: 100% !important;
-        font-size: 16px !important;
-    }
-
-    .post-card {
-        margin: 15px 5px !important;
-        padding: 15px !important;
-    }
-}
+        /* Mobile Fixes */
+        @media (max-width: 600px) {
+            header { padding: 40px 10px; }
+            header h1 { font-size: 1.8rem; }
+            .container { margin: 20px auto; }
+            .post-card { padding: 15px; }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>SCIENCE PORTAL</h1>
-        <nav>
-        <ul>
-            <li><a href="{{ site.baseurl }}/">Home</a></li>
-            <li><a href="{{ site.baseurl }}/about/">About</a></li>
-        </ul>
-        </nav>    
-    </header>
-    <div style="max-width: 900px; margin: 30px auto; padding: 0 20px; text-align: center;">
-    <input type="text" id="search-input" placeholder="Search for scientific insights..." 
-           style="width: 100%; padding: 12px 20px; border: 2px solid var(--primary); border-radius: 25px; outline: none; font-size: 1rem;">
-    <ul id="results-container" style="list-style: none; padding: 0; margin-top: 10px; text-align: left;"></ul>
+
+<header>
+    <h1>SCIENCE PORTAL</h1>
+    <nav>
+        <a href="{{ site.baseurl }}/">Home</a>
+        <a href="{{ site.baseurl }}/about/">About</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search for scientific insights...">
+        <ul id="results-container"></ul>
+    </div>
+
+    {{ content }}
 </div>
 
 <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
-
 <script>
-  window.simpleJekyllSearch = SimpleJekyllSearch({
+  SimpleJekyllSearch({
     searchInput: document.getElementById('search-input'),
     resultsContainer: document.getElementById('results-container'),
     json: '{{ site.baseurl }}/search.json',
-    searchResultTemplate: '<li style="background: white; padding: 10px; border-bottom: 1px solid #eee;"><a href="{url}" style="color: var(--dark); text-decoration: none; font-weight: bold;">{title}</a> <small style="color: #888;">({date})</small></li>',
-    noResultsText: '<li style="padding: 10px; color: #888;">No results found in our database.</li>',
-    limit: 10,
-    fuzzy: false
+    searchResultTemplate: '<li><a href="{url}">{title}</a> <small>{date}</small></li>',
+    noResultsText: 'No results found.',
+    limit: 10
   })
 </script>
-    <div class="container">
-        {{ content }}
-    </div>
-    <footer>© 2026 Science Portal - Azəri Nyuton</footer>
-{% if page.url != "/" and page.url != "/index.html" %}
-<script>
-  // Yalnız məqalə daxilində rəqəmi 1 vahid artırır
-  fetch('https://api.countapi.xyz/hit/azerinyuton.github.io/{{ page.url | slugify }}');
-</script>
-{% endif %}
+
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
