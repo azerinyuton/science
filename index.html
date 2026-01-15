@@ -13,10 +13,10 @@ title: Home
     <span style="font-size: 0.85rem; color: #888;">📅 {{ post.date | date: "%B %d, %Y" }}</span>
     
     <span style="font-size: 0.85rem; color: #888; margin-left: 10px;">
-    | <i class="views-icon">👁️</i> <span class="waline-pageview-count" data-path="{{ post.url }}">...</span> Views
+    | 👁️ <span id="busuanzi_value_page_pv">...</span> views
 </span>
 
-<script src='https://cdn.jsdelivr.net/npm/@waline/client/dist/pageview.js'></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script>
   walinePageView({
     serverURL: 'https://waline-test-3f8id7p82-azerinyuton.vercel.app', // Bu müvəqqəti test serveridir
@@ -29,6 +29,7 @@ title: Home
     <a href="{{ post.url | relative_url }}" class="read-more">Read Article →</a>
 </div>
 {% endfor %}
+
 
 
 
