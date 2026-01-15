@@ -9,15 +9,18 @@ title: Home
 <div class="post-card">
     <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
     
-    <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <span style="font-size: 0.85rem; color: #888;">📅 {{ post.date | date: "%B %d, %Y" }}</span>
-        
-        <span class="view-count">
-            | <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://azerinyuton.github.io{{ post.url }}&count_bg=%232A9D8F&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Views&edge_flat=false" alt="Views"/>
-        </span>
-    </div>
+<div style="display: flex; align-items: center; margin-bottom: 10px; gap: 15px;">
+    <span style="font-size: 0.85rem; color: #888;">📅 {{ post.date | date: "%B %d, %Y" }}</span>
+    
+    <span class="view-count" style="display: inline-flex; align-items: center;">
+        <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://azerinyuton.github.io{{ post.url }}&count_bg=%232A9D8F&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Views&edge_flat=false" 
+             style="height: 20px; border: none; box-shadow: none !important; margin: 0 !important;" 
+             alt="Views">
+    </span>
+</div>
 
     <p>{{ post.content | strip_html | truncatewords: 25 }}</p>
     <a href="{{ post.url | relative_url }}" class="read-more">Read Article →</a>
 </div>
 {% endfor %}
+
