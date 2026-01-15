@@ -23,15 +23,73 @@
 
         .container { max-width: 850px; margin: 0 auto; padding: 20px; }
 
-        /* Axtarış Qutusu */
-        #search-input {
-            width: 100%; padding: 12px 20px; border: 2px solid #e0e0e0;
-            border-radius: 30px; outline: none; font-size: 1rem; margin: 20px 0;
-            transition: border-color 0.3s;
-        }
-        #search-input:focus { border-color: var(--primary); }
-        #results-container { list-style: none; padding: 0; margin: 0; }
-        #results-container li { padding: 10px; border-bottom: 1px solid #eee; }
+        /* Axtarış Sahəsinin Yeni Dizaynı */
+.search-wrapper {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+#search-input {
+    width: 100%;
+    padding: 15px 25px;
+    border: 2px solid #edf2f7;
+    border-radius: 50px;
+    outline: none;
+    font-size: 1rem;
+    background: #f8fafc;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+#search-input:focus {
+    border-color: var(--primary);
+    background: white;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Axtarış Nəticələri - Dropdown Forması */
+#results-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+#results-container li {
+    border-bottom: 1px solid #f1f5f9;
+}
+
+#results-container li a {
+    display: block;
+    padding: 15px 20px;
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+#results-container li a:hover {
+    background: #f0fdfa;
+    color: var(--primary);
+}
+
+/* Nəticə tapılmayanda */
+.no-results {
+    padding: 15px 20px;
+    color: #64748b;
+    font-size: 0.9rem;
+    text-align: center;
+}
 
         /* Məqalə Kartları */
         .post-card { 
@@ -82,3 +140,4 @@
 
 </body>
 </html>
+
