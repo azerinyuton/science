@@ -3,42 +3,16 @@ layout: default
 title: Home
 ---
 
-<h2 style="color: var(--dark); border-bottom: 3px solid var(--primary); display: inline-block;">Latest Insights</h2>
+<h2 style="color: var(--dark); margin-bottom: 30px; border-bottom: 2px solid #eee; padding-bottom: 10px;">Latest Articles</h2>
 
 {% for post in site.posts %}
 <div class="post-card">
     <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-    
-<div style="display: flex; align-items: center; margin-bottom: 10px; gap: 15px;">
-    <span style="font-size: 0.85rem; color: #888;">📅 {{ post.date | date: "%B %d, %Y" }}</span>
-    
-<span style="font-size: 0.85rem; color: #888; margin-left: 10px; display: inline-flex; align-items: center;">
-    | 👁️ <span id="view-count-{{ post.url | slugify }}">...</span> views
-</span>
-
-<script>
-  // Hər post üçün fərqli rəqəmi çəkir
-  fetch('https://api.countapi.xyz/get/azerinyuton.github.io/{{ post.url | slugify }}')
-    .then(res => res.json())
-    .then(res => {
-        document.getElementById('view-count-{{ post.url | slugify }}').innerText = res.value || 0;
-    })
-    .catch(() => {
-        document.getElementById('view-count-{{ post.url | slugify }}').innerText = '1';
-    });
-</script>
-</div>
-
+    <div class="meta">
+        <span>📅 {{ post.date | date: "%B %d, %Y" }}</span>
+        <span style="margin-left: 15px;">⏱️ {{ post.content | number_of_words | divided_by: 180 | plus: 1 }} min read</span>
+    </div>
     <p>{{ post.content | strip_html | truncatewords: 25 }}</p>
-    <a href="{{ post.url | relative_url }}" class="read-more">Read Article →</a>
+    <a href="{{ post.url | relative_url }}" class="read-more">Read Full Article →</a>
 </div>
 {% endfor %}
-
-
-
-
-
-
-
-
-
