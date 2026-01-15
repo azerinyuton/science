@@ -30,8 +30,13 @@
     display: inline !important;
 }
       /* Mobil və Ümumi Səliqə */
+/* Sürüşməni önləyən əsas qaydalar */
+* {
+    box-sizing: border-box;
+}
+
 html, body {
-    overflow-x: hidden; /* Sürüşməni kökündən kəsir */
+    overflow-x: hidden;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -41,19 +46,22 @@ html, body {
     max-width: 900px;
     margin: 0 auto;
     padding: 0 15px;
-    box-sizing: border-box;
 }
 
+/* Mobil Cihazlar Üçün Tam Uyğunluq */
 @media screen and (max-width: 768px) {
     header h1 {
-        font-size: 1.5rem !important;
+        font-size: 1.6rem !important;
+        padding: 10px;
     }
+    
     #search-input {
         width: 100% !important;
-        font-size: 16px !important; /* Zoom-un qarşısını alır */
+        font-size: 16px !important;
     }
+
     .post-card {
-        margin: 15px 0 !important;
+        margin: 15px 5px !important;
         padding: 15px !important;
     }
 }
@@ -98,6 +106,7 @@ html, body {
 </body>
 
 </html>
+
 
 
 
