@@ -29,28 +29,33 @@
     box-shadow: none !important; /* İkona kölgə verməsin */
     display: inline !important;
 }
-        @media (max-width: 600px) {
-    header h1 { font-size: 1.8rem; }
-    nav ul li { margin: 0 10px; }
-    .post-card { padding: 15px; }
-    input#search-input { font-size: 0.9rem; }
+      /* Mobil və Ümumi Səliqə */
+html, body {
+    overflow-x: hidden; /* Sürüşməni kökündən kəsir */
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    /* Axtarış çubuğunun telefonda kənardan çıxmaması üçün */
-    #search-input { 
-        width: 100% !important; 
-        font-size: 14px; 
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem !important;
     }
-
-    .post-card h2 { font-size: 1.3rem; }
-    
-    nav ul li { margin: 0 10px; }
-}
-
-/* Axtarış qutusu üçün ümumi düzəliş */
-#search-input {
-    box-sizing: border-box; /* Padding-in ölçüyə təsir etməməsi üçün mütləqdir */
+    #search-input {
+        width: 100% !important;
+        font-size: 16px !important; /* Zoom-un qarşısını alır */
+    }
+    .post-card {
+        margin: 15px 0 !important;
+        padding: 15px !important;
+    }
 }
     </style>
 </head>
@@ -90,6 +95,7 @@
 </body>
 
 </html>
+
 
 
 
