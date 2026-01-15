@@ -3,17 +3,21 @@ layout: default
 title: Home
 ---
 
-<h1 style="color: var(--dark); border-bottom: 2px solid var(--primary); padding-bottom: 10px;">Son Məqalələr</h1>
+<h2 style="color: var(--dark); border-bottom: 3px solid var(--primary); display: inline-block;">Latest Insights</h2>
 
 {% for post in site.posts %}
 <div class="post-card">
     <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-    <p style="color: #666; font-size: 0.9rem;">📅 {{ post.date | date: "%d.%m.%Y" }}</p>
-    <div class="post-content">
-        {{ post.content | strip_html | truncatewords: 20 }}
+    
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-size: 0.85rem; color: #888;">📅 {{ post.date | date: "%B %d, %Y" }}</span>
+        
+        <span class="view-count">
+            | <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://azerinyuton.github.io{{ post.url }}&count_bg=%232A9D8F&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Views&edge_flat=false" alt="Views"/>
+        </span>
     </div>
-    <a href="{{ post.url | relative_url }}" class="read-more">Davamını oxu →</a>
+
+    <p>{{ post.content | strip_html | truncatewords: 25 }}</p>
+    <a href="{{ post.url | relative_url }}" class="read-more">Read Article →</a>
 </div>
-{% else %}
-<p>Hələ ki, heç bir məqalə tapılmadı. Zəhmət olmasa _posts qovluğunu yoxlayın.</p>
 {% endfor %}
