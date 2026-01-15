@@ -28,6 +28,25 @@
         </ul>
         </nav>    
     </header>
+    <div style="max-width: 900px; margin: 30px auto; padding: 0 20px; text-align: center;">
+    <input type="text" id="search-input" placeholder="Search for scientific insights..." 
+           style="width: 100%; padding: 12px 20px; border: 2px solid var(--primary); border-radius: 25px; outline: none; font-size: 1rem;">
+    <ul id="results-container" style="list-style: none; padding: 0; margin-top: 10px; text-align: left;"></ul>
+</div>
+
+<script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+
+<script>
+  window.simpleJekyllSearch = SimpleJekyllSearch({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '{{ site.baseurl }}/search.json',
+    searchResultTemplate: '<li style="background: white; padding: 10px; border-bottom: 1px solid #eee;"><a href="{url}" style="color: var(--dark); text-decoration: none; font-weight: bold;">{title}</a> <small style="color: #888;">({date})</small></li>',
+    noResultsText: '<li style="padding: 10px; color: #888;">No results found in our database.</li>',
+    limit: 10,
+    fuzzy: false
+  })
+</script>
     <div class="container">
         {{ content }}
     </div>
@@ -35,4 +54,5 @@
 </body>
 
 </html>
+
 
