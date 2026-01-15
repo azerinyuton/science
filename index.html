@@ -13,14 +13,27 @@ title: Home
     <span style="font-size: 0.85rem; color: #888;">📅 {{ post.date | date: "%B %d, %Y" }}</span>
     
 <span style="font-size: 0.85rem; color: #888; margin-left: 10px; display: inline-flex; align-items: center;">
-    | <span style="margin-right: 5px;">👁️</span> <span id="busuanzi_value_page_pv">...</span> views
+    | 👁️ <span id="view-count-{{ post.url | slugify }}">...</span> views
 </span>
+
+<script>
+  // Hər post üçün fərqli rəqəmi çəkir
+  fetch('https://api.countapi.xyz/get/azerinyuton.github.io/{{ post.url | slugify }}')
+    .then(res => res.json())
+    .then(res => {
+        document.getElementById('view-count-{{ post.url | slugify }}').innerText = res.value || 0;
+    })
+    .catch(() => {
+        document.getElementById('view-count-{{ post.url | slugify }}').innerText = '1';
+    });
+</script>
 </div>
 
     <p>{{ post.content | strip_html | truncatewords: 25 }}</p>
     <a href="{{ post.url | relative_url }}" class="read-more">Read Article →</a>
 </div>
 {% endfor %}
+
 
 
 
