@@ -34,6 +34,31 @@
     .post-card { padding: 15px; }
     input#search-input { font-size: 0.9rem; }
 }
+        /* Mobile and Tablet Optimization */
+@media (max-width: 768px) {
+    header { padding: 30px 10px; }
+    header h1 { font-size: 1.8rem; }
+    
+    .container { 
+        width: 95% !important; 
+        padding: 10px; 
+    }
+
+    /* Axtarış çubuğunun telefonda kənardan çıxmaması üçün */
+    #search-input { 
+        width: 100% !important; 
+        font-size: 14px; 
+    }
+
+    .post-card h2 { font-size: 1.3rem; }
+    
+    nav ul li { margin: 0 10px; }
+}
+
+/* Axtarış qutusu üçün ümumi düzəliş */
+#search-input {
+    box-sizing: border-box; /* Padding-in ölçüyə təsir etməməsi üçün mütləqdir */
+}
     </style>
 </head>
 <body>
@@ -72,6 +97,7 @@
 </body>
 
 </html>
+
 
 
 
