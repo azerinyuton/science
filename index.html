@@ -13,7 +13,9 @@ title: Home
     <span style="font-size: 0.85rem; color: #888;">📅 {{ post.date | date: "%B %d, %Y" }}</span>
     
     <span style="font-size: 0.85rem; color: #888; margin-left: 10px; display: inline-flex; align-items: center;">
-    | <span id="view_{{ post.url | slugify }}" style="margin-left: 5px; font-weight: bold; color: var(--primary);">...</span> views
+    | <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://azerinyuton.github.io{{ post.url }}&count_bg=%23ffffff00&title_bg=%23ffffff00&icon=&icon_color=%23E7E7E7&title=Views&edge_flat=true" 
+         style="height: 20px; border: none; box-shadow: none !important; margin: 0 !important; filter: contrast(0.5);" 
+         alt="Views">
 </span>
 
 <script>
@@ -33,5 +35,6 @@ title: Home
     <a href="{{ post.url | relative_url }}" class="read-more">Read Article →</a>
 </div>
 {% endfor %}
+
 
 
