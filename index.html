@@ -12,8 +12,8 @@ title: Home
 <div style="display: flex; align-items: center; margin-bottom: 10px; gap: 15px;">
     <span style="font-size: 0.85rem; color: #888;">📅 {{ post.date | date: "%B %d, %Y" }}</span>
     
-    <span style="font-size: 0.85rem; color: #888; margin-left: 10px;">
-    | 👁️ <span id="busuanzi_value_page_pv">...</span> views
+<span style="font-size: 0.85rem; color: #888; margin-left: 10px; display: inline-flex; align-items: center;">
+    | <span style="margin-right: 5px;">👁️</span> <span id="busuanzi_value_page_pv">...</span> views
 </span>
 </div>
 
@@ -21,6 +21,7 @@ title: Home
     <a href="{{ post.url | relative_url }}" class="read-more">Read Article →</a>
 </div>
 {% endfor %}
+
 
 
 
