@@ -121,11 +121,9 @@
     </div>
 </header>
 
-<div class="container">
-    <input type="text" id="search-input" placeholder="Search for scientific insights...">
+<div class="search-wrapper">
+    <input type="text" id="search-input" placeholder="Search insights...">
     <ul id="results-container"></ul>
-
-    {{ content }}
 </div>
 
 <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
@@ -134,10 +132,13 @@
     searchInput: document.getElementById('search-input'),
     resultsContainer: document.getElementById('results-container'),
     json: '{{ "/search.json" | relative_url }}',
-    searchResultTemplate: '<li><a href="{url}">{title}</a></li>'
+    searchResultTemplate: '<li><a href="{url}">🔍 {title}</a></li>',
+    noResultsText: '<li class="no-results">No matches found</li>',
+    limit: 10
   })
 </script>
 
 </body>
 </html>
+
 
