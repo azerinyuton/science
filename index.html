@@ -12,15 +12,26 @@ title: Home
 <div style="display: flex; align-items: center; margin-bottom: 10px; gap: 15px;">
     <span style="font-size: 0.85rem; color: #888;">📅 {{ post.date | date: "%B %d, %Y" }}</span>
     
-    <span class="view-count" style="display: inline-flex; align-items: center;">
-        <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://azerinyuton.github.io{{ post.url }}&count_bg=%232A9D8F&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Views&edge_flat=false" 
-             style="height: 20px; border: none; box-shadow: none !important; margin: 0 !important;" 
-             alt="Views">
-    </span>
+    <span style="font-size: 0.85rem; color: #888; margin-left: 10px; display: inline-flex; align-items: center;">
+    | <span id="view_{{ post.url | slugify }}" style="margin-left: 5px; font-weight: bold; color: var(--primary);">...</span> views
+</span>
+
+<script>
+    // Bu kod səhifəni yeniləmədən rəqəmi təhlükəsiz şəkildə çəkir
+    fetch('https://api.countapi.xyz/hit/azerinyuton.github.io/{{ post.url | slugify }}')
+        .then(res => res.json())
+        .then(res => {
+            document.getElementById('view_{{ post.url | slugify }}').innerText = res.value;
+        })
+        .catch(() => {
+            document.getElementById('view_{{ post.url | slugify }}').innerText = '1';
+        });
+</script>
 </div>
 
     <p>{{ post.content | strip_html | truncatewords: 25 }}</p>
     <a href="{{ post.url | relative_url }}" class="read-more">Read Article →</a>
 </div>
 {% endfor %}
+
 
