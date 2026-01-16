@@ -4,126 +4,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} | Science Portal</title>
     <style>
-        :root { --primary: #2A9D8F; --dark: #264653; }
-        
-        /* Mobil sürüşməni və xətaları önləyən ana qaydalar */
+        :root { --primary: #2A9D8F; --dark: #264653; --bg: #f8fafc; }
         * { box-sizing: border-box; }
-        html, body { 
-            margin: 0; padding: 0; width: 100%; 
-            overflow-x: hidden; /* Sağ tərəfə sürüşməni kəsir */
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.6; color: #333;
-        }
+        html, body { margin: 0; padding: 0; width: 100%; overflow-x: hidden; font-family: 'Segoe UI', sans-serif; background: var(--bg); }
 
-        header { background: var(--dark); color: white; padding: 40px 20px; text-align: left; }
-        header h1 { margin: 0; font-size: 2rem; letter-spacing: 1px; text-transform: uppercase; }
+        header { background: var(--dark); color: white; padding: 40px 20px; text-align: center; }
+        header h1 { margin: 0; font-size: 2rem; letter-spacing: 2px; }
         nav { margin-top: 15px; }
-        nav a { color: white; margin-right: 20px; text-decoration: none; font-weight: 500; opacity: 0.8; }
-        nav a:hover { opacity: 1; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: 500; opacity: 0.8; }
+        nav a:hover { opacity: 1; color: var(--primary); }
 
-        .container { max-width: 850px; margin: 0 auto; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; position: relative; }
 
-        /* Axtarış Sahəsinin Yeni Dizaynı */
-.search-wrapper {
-    position: relative;
-    max-width: 600px;
-    margin: 0 auto 40px auto;
-}
-
-#search-input {
-    width: 100%;
-    padding: 15px 25px;
-    border: 2px solid #edf2f7;
-    border-radius: 50px;
-    outline: none;
-    font-size: 1rem;
-    background: #f8fafc;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-#search-input:focus {
-    border-color: var(--primary);
-    background: white;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-}
-
-/* Axtarış Nəticələri - Dropdown Forması */
-#results-container {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    max-height: 300px;
-    overflow-y: auto;
-    margin-top: 10px;
-    list-style: none;
-    padding: 0;
-}
-
-#results-container li {
-    border-bottom: 1px solid #f1f5f9;
-}
-
-#results-container li a {
-    display: block;
-    padding: 15px 20px;
-    color: var(--dark);
-    text-decoration: none;
-    font-weight: 500;
-    transition: background 0.2s;
-}
-
-#results-container li a:hover {
-    background: #f0fdfa;
-    color: var(--primary);
-}
-
-/* Nəticə tapılmayanda */
-.no-results {
-    padding: 15px 20px;
-    color: #64748b;
-    font-size: 0.9rem;
-    text-align: center;
-}
+        /* Səliqəli Axtarış Çubuğu */
+        .search-wrapper { position: relative; margin: -30px auto 40px auto; z-index: 100; }
+        #search-input { 
+            width: 100%; padding: 15px 25px; border: none; border-radius: 50px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); outline: none; font-size: 1rem;
+        }
+        #results-container { 
+            position: absolute; top: 100%; left: 0; right: 0; background: white; 
+            border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+            list-style: none; padding: 0; margin-top: 10px; max-height: 300px; overflow-y: auto;
+        }
+        #results-container li a { display: block; padding: 12px 20px; color: var(--dark); text-decoration: none; border-bottom: 1px solid #eee; }
+        #results-container li a:hover { background: #f0fdfa; color: var(--primary); }
 
         /* Məqalə Kartları */
-        .post-card { 
-            background: white; border: 1px solid #eee; border-radius: 15px;
-            padding: 25px; margin-bottom: 25px; border-left: 6px solid var(--primary);
-            transition: transform 0.2s;
-        }
-        .post-card h2 { margin-top: 0; font-size: 1.5rem; color: var(--dark); }
-        .post-card h2 a { text-decoration: none; color: inherit; }
-        .meta { font-size: 0.85rem; color: #777; margin-bottom: 15px; display: flex; gap: 15px; }
-        .read-more { color: var(--primary); font-weight: 600; text-decoration: none; display: inline-block; margin-top: 10px; }
+        .post-card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 30px; border-left: 6px solid var(--primary); }
+        .post-card h2 { margin-top: 0; font-size: 1.5rem; }
+        .post-card h2 a { text-decoration: none; color: var(--dark); }
+        .meta { font-size: 0.85rem; color: #888; margin-bottom: 15px; display: flex; gap: 15px; }
+        .read-more { color: var(--primary); font-weight: bold; text-decoration: none; }
 
-        /* Mobil üçün xüsusi toxunuş */
         @media (max-width: 600px) {
-            header h1 { font-size: 1.5rem; }
-            .post-card { padding: 20px; }
+            header h1 { font-size: 1.6rem; }
+            .container { padding: 15px; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <div style="max-width: 850px; margin: 0 auto;">
-        <h1>Science Portal</h1>
-        <nav>
-            <a href="{{ '/' | relative_url }}">Home</a>
-            <a href="{{ '/about' | relative_url }}">About</a>
-        </nav>
-    </div>
+    <h1>SCIENCE PORTAL</h1>
+    <nav>
+        <a href="{{ site.baseurl }}/">Home</a>
+        <a href="{{ site.baseurl }}/about/">About</a>
+    </nav>
 </header>
 
-<div class="search-wrapper">
-    <input type="text" id="search-input" placeholder="Search insights...">
-    <ul id="results-container"></ul>
+<div class="container">
+    <div class="search-wrapper">
+        <input type="text" id="search-input" placeholder="Search insights...">
+        <ul id="results-container"></ul>
+    </div>
+
+    {{ content }}
 </div>
 
 <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
@@ -133,12 +69,9 @@
     resultsContainer: document.getElementById('results-container'),
     json: '{{ "/search.json" | relative_url }}',
     searchResultTemplate: '<li><a href="{url}">🔍 {title}</a></li>',
-    noResultsText: '<li class="no-results">No matches found</li>',
-    limit: 10
+    noResultsText: '<li style="padding:15px; color:#888;">No results found</li>'
   })
 </script>
 
 </body>
 </html>
-
-
