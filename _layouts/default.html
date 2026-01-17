@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en"> <head>
+<html lang="en"> 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} | Science Portal</title>
@@ -16,7 +17,7 @@
 
         .container { max-width: 800px; margin: 0 auto; padding: 20px; position: relative; }
 
-        /* Səliqəli Axtarış Çubuğu */
+        /* Search Section */
         .search-wrapper { position: relative; margin: 40px auto 40px auto; z-index: 100; }
         #search-input { 
             width: 100%; padding: 15px 25px; border: none; border-radius: 50px; 
@@ -30,16 +31,15 @@
         #results-container li a { display: block; padding: 12px 20px; color: var(--dark); text-decoration: none; border-bottom: 1px solid #eee; }
         #results-container li a:hover { background: #f0fdfa; color: var(--primary); }
 
-        /* Məqalə Kartları */
-        .post-card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 30px; border-left: 6px solid var(--primary); }
-        .post-card h2 { margin-top: 0; font-size: 1.5rem; }
-        .post-card h2 a { text-decoration: none; color: var(--dark); }
-        .meta { font-size: 0.85rem; color: #888; margin-bottom: 15px; display: flex; gap: 15px; }
-        .read-more { color: var(--primary); font-weight: bold; text-decoration: none; }
+        /* Article Internal Styles (Professional Look) */
+        .article-header { margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        .article-meta { font-size: 0.9rem; color: #666; display: flex; gap: 20px; margin-top: 10px; }
+        .author-tag { color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
 
         @media (max-width: 600px) {
             header h1 { font-size: 1.6rem; }
             .container { padding: 15px; }
+            .article-meta { flex-direction: column; gap: 5px; }
         }
     </style>
 </head>
@@ -54,10 +54,23 @@
 </header>
 
 <div class="container">
+    {% if page.url == "/" or page.url == "/index.html" %}
     <div class="search-wrapper">
-        <input type="text" id="search-input" placeholder="Search insights...">
+        <input type="text" id="search-input" placeholder="Search insights (Quantum, Physics...)...">
         <ul id="results-container"></ul>
     </div>
+    {% endif %}
+
+    {% if page.layout == "post" or page.author %}
+    <div class="article-header">
+        <h1 style="margin-bottom: 5px; color: var(--dark);">{{ page.title }}</h1>
+        <div class="article-meta">
+            <span>📅 {{ page.date | date: "%B %d, %Y" }}</span>
+            <span class="author-tag">✍️ By {{ page.author | default: "Editorial Team" }}</span>
+            <span>⏱️ {{ page.content | number_of_words | divided_by: 180 | plus: 1 }} min read</span>
+        </div>
+    </div>
+    {% endif %}
 
     {{ content }}
 </div>
@@ -75,4 +88,3 @@
 
 </body>
 </html>
-
