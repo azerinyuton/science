@@ -10,9 +10,10 @@ title: Home
     <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
     <div class="meta">
         <span>📅 {{ post.date | date: "%B %d, %Y" }}</span>
-        <span>⏱️ {{ post.content | number_of_words | divided_by: 180 | plus: 1 }} min read</span>
+        <span>✍️ {{ post.author | default: "Editorial Team" }}</span> <span>⏱️ {{ post.content | number_of_words | divided_by: 180 | plus: 1 }} min read</span>
     </div>
     <p style="color: #555;">{{ post.content | strip_html | truncatewords: 25 }}</p>
     <a href="{{ post.url | relative_url }}" class="read-more">Read Full Article →</a>
 </div>
 {% endfor %}
+
