@@ -4,6 +4,8 @@ title: About Us
 permalink: /about/
 ---
 
+<div class="about-content">
+
 # About Us: Scientific Research and Communication Platform
 
 **Science Portal** is an independent digital scientific journal platform established for the exploration, analysis, and dissemination of physical sciences. Our primary mission is to support the scientific creativity of young researchers, students, and professionals, connecting them within a unified academic network.
@@ -26,5 +28,7 @@ To participate in the project or submit an article, please use our official comm
 
 * **📧 E-mail:** [yusifmammedov001@gmail.com](mailto:yusifmammedov001@gmail.com)
 * **📞 Phone:** +994 51 533 04 17
+
+</div>
 
 ---
