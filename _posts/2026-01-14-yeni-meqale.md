@@ -1,7 +1,8 @@
 ---
-layout: default
-title: "Məqalənin Başlığı Buraya"
+layout: post
+title: "Kvant Dünyasına Giriş"
 date: 2026-01-14
+author: "Yusif Mammedov" 
 ---
 
 Bu mənim ilk şəkilli məqaləmdir. Aşağıda elmi tədqiqatımızla bağlı mühüm bir təsvir var.
