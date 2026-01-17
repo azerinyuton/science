@@ -142,16 +142,7 @@ nav a:hover { opacity: 1; color: var(--primary); }
     </div>
     {% endif %}
 
-    {% if page.layout == "post" %}
-<div class="article-header">
-    <h1 style="color: var(--dark); margin-top: 0;">{{ page.title }}</h1>
-    <div class="article-meta">
-        <span>📅 {{ page.date | date: "%B %d, %Y" }}</span>
-        <span class="author-tag">{{ page.author | default: "Editorial Team" }}</span>
-        <span>⏱️ {{ page.content | number_of_words | divided_by: 180 | plus: 1 }} min read</span>
-    </div>
-</div>
-{% endif %}
+    
     
     {{ content }}
 </div>
@@ -169,6 +160,7 @@ nav a:hover { opacity: 1; color: var(--primary); }
 
 </body>
 </html>
+
 
 
 
