@@ -5,79 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} | Science Portal</title>
     <style>
-        :root { --primary: #2A9D8F; --dark: #264653; --bg: #f8fafc; }
-        * { box-sizing: border-box; }
-        html, body { margin: 0; padding: 0; width: 100%; overflow-x: hidden; font-family: 'Segoe UI', sans-serif; background: var(--bg); }
+       /* Science Portal - Professional & Clean Styles */
+:root { --primary: #2A9D8F; --dark: #264653; --bg: #f8fafc; --text: #4a5568; }
 
-        header { background: var(--dark); color: white; padding: 40px 20px; text-align: center; }
-        header h1 { margin: 0; font-size: 2rem; letter-spacing: 2px; }
-        nav { margin-top: 15px; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: 500; opacity: 0.8; }
-        nav a:hover { opacity: 1; color: var(--primary); }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; width: 100%; overflow-x: hidden; font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); }
 
-        .container { max-width: 800px; margin: 0 auto; padding: 20px; position: relative; }
+header { background: var(--dark); color: white; padding: 50px 20px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+header h1 { margin: 0; font-size: 2.2rem; letter-spacing: 3px; font-weight: 800; }
+nav { margin-top: 20px; }
+nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: 500; opacity: 0.8; transition: 0.3s; }
+nav a:hover { opacity: 1; color: var(--primary); }
 
-        /* Search Section */
-        .search-wrapper { position: relative; margin: 40px auto 40px auto; z-index: 100; }
-        #search-input { 
-            width: 100%; padding: 15px 25px; border: none; border-radius: 50px; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1); outline: none; font-size: 1rem;
-        }
-        #results-container { 
-            position: absolute; top: 100%; left: 0; right: 0; background: white; 
-            border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
-            list-style: none; padding: 0; margin-top: 10px; max-height: 300px; overflow-y: auto;
-        }
-        #results-container li a { display: block; padding: 12px 20px; color: var(--dark); text-decoration: none; border-bottom: 1px solid #eee; }
-        #results-container li a:hover { background: #f0fdfa; color: var(--primary); }
+.container { max-width: 850px; margin: 0 auto; padding: 20px; }
 
-        /* Article Internal Styles (Professional Look) */
-        .article-header { margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
-        .article-meta { font-size: 0.9rem; color: #666; display: flex; gap: 20px; margin-top: 10px; }
-        .author-tag { color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-
-        @media (max-width: 600px) {
-            header h1 { font-size: 1.6rem; }
-            .container { padding: 15px; }
-            .article-meta { flex-direction: column; gap: 5px; }
-        }
-        /* Dizaynı bərpa edən və müəllif adını səliqəyə salan kodlar */
-.article-header {
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #edf2f7;
+/* Search Bar - Floating Style */
+.search-wrapper { position: relative; margin: -35px auto 50px auto; max-width: 600px; z-index: 100; }
+#search-input { 
+    width: 100%; padding: 16px 28px; border: none; border-radius: 50px; 
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1); outline: none; font-size: 1rem;
 }
 
-.article-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    font-size: 0.9rem;
-    color: #718096;
-    align-items: center;
+/* Post Cards - Ana Səhifə */
+.post-card { 
+    background: white; padding: 30px; border-radius: 16px; 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03); margin-bottom: 30px; 
+    border-left: 5px solid var(--primary); transition: transform 0.3s ease;
 }
+.post-card:hover { transform: translateY(-5px); }
+.post-card h2 { margin: 0 0 12px 0; font-size: 1.6rem; color: var(--dark); }
+.post-card h2 a { text-decoration: none; color: inherit; }
 
-.author-tag {
-    color: #2D3748;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
+/* Meta Bilgilər - Səliqəli İkonlarla */
+.meta { 
+    display: flex; flex-wrap: wrap; gap: 15px; font-size: 0.85rem; 
+    color: #718096; margin-bottom: 18px; align-items: center; 
 }
+.meta span { display: flex; align-items: center; gap: 5px; }
+.author-name { color: var(--primary); font-weight: 600; }
 
-.author-tag::before {
-    content: "✍️";
-    margin-right: 5px;
-}
+.read-more { color: var(--primary); font-weight: 700; text-decoration: none; font-size: 0.9rem; }
 
-/* Kartlardakı meta hissəsinin dağılmaması üçün */
-.post-card .meta {
-    display: flex;
-    gap: 15px;
-    font-size: 0.85rem;
-    color: #888;
-    margin-bottom: 15px;
-    align-items: center;
-}
+/* Məqalə Daxili - Post Page */
+.article-content { background: white; padding: 40px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+.article-header { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #f1f5f9; }
     </style>
 </head>
 <body>
@@ -136,4 +107,5 @@
 
 </body>
 </html>
+
 
