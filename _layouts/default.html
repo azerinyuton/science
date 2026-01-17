@@ -41,6 +41,43 @@
             .container { padding: 15px; }
             .article-meta { flex-direction: column; gap: 5px; }
         }
+        /* Dizaynı bərpa edən və müəllif adını səliqəyə salan kodlar */
+.article-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 0.9rem;
+    color: #718096;
+    align-items: center;
+}
+
+.author-tag {
+    color: #2D3748;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.author-tag::before {
+    content: "✍️";
+    margin-right: 5px;
+}
+
+/* Kartlardakı meta hissəsinin dağılmaması üçün */
+.post-card .meta {
+    display: flex;
+    gap: 15px;
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 15px;
+    align-items: center;
+}
     </style>
 </head>
 <body>
@@ -72,6 +109,17 @@
     </div>
     {% endif %}
 
+    {% if page.layout == "post" %}
+<div class="article-header">
+    <h1 style="color: var(--dark); margin-top: 0;">{{ page.title }}</h1>
+    <div class="article-meta">
+        <span>📅 {{ page.date | date: "%B %d, %Y" }}</span>
+        <span class="author-tag">{{ page.author | default: "Editorial Team" }}</span>
+        <span>⏱️ {{ page.content | number_of_words | divided_by: 180 | plus: 1 }} min read</span>
+    </div>
+</div>
+{% endif %}
+    
     {{ content }}
 </div>
 
@@ -88,3 +136,4 @@
 
 </body>
 </html>
+
