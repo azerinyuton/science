@@ -1,6 +1,8 @@
 title: Science Portal
 url: "https://physymmetry.org"
 baseurl: ""  # Buranı tamamilə boş saxla (dırnaqların içi boş olsun)
+logo: "/assets/images/logo.png"
+title: "The Symmetry of Physics"
 
 # Məqalələri tapması üçün bu sətirləri mütləq əlavə et:
 collections:
@@ -15,4 +17,5 @@ defaults:
       layout: "default"
 
 future: true
+
 
