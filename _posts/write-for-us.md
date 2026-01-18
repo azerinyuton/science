@@ -1,7 +1,8 @@
 ---
-layout: page
-title: Write for Us
-permalink: /write-for-us/
+layout: post
+title: "Write For Us"
+date: 2026-01-14
+author: "" 
 ---
 
 ## 📢 Your Voice, A Part of the Universe! 🌌
