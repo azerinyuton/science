@@ -6,13 +6,13 @@ permalink: /about/
 
 <div class="about-content">
     <h1>About Us</h1>
-    <p><strong>Science Portal</strong> is an independent digital scientific journal platform established for the exploration, analysis, and dissemination of physical sciences. Our primary mission is to support the scientific creativity of young researchers, students, and professionals, connecting them within a unified academic network.</p>
+    <p><strong>The Symmetry Of Physics</strong> is an independent digital scientific journal platform established for the exploration, analysis, and dissemination of physical sciences. Our primary mission is to support the scientific creativity of young researchers, students, and professionals, connecting them within a unified academic network.</p>
 
     <h3>Our Mission and Strategy</h3>
     <p>Our platform's core mission is to foster a free academic environment while upholding the principles of scientific integrity. We believe that fundamental science should not be confined to laboratories and textbooks but should be reflected in the individual scientific creativity of every mind.</p>
 
     <h3>Editorial Policy and Scientific Review</h3>
-    <p>Unlike open blog sites, <strong>Science Portal</strong> operates as an <strong>e-journal</strong>. This format ensures the quality and credibility of every published material:</p>
+    <p>Unlike open blog sites, <strong>The Symmetry Of Physics</strong> operates as an <strong>e-journal</strong>. This format ensures the quality and credibility of every published material:</p>
     <ul>
         <li><strong>Scientific Expertise:</strong> Every submitted article is analyzed by our editorial team for scientific fundamentality, logical consistency, and accuracy.</li>
         <li><strong>Classification:</strong> Submissions are categorized based on their scientific value and specific subject matter.</li>
