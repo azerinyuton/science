@@ -2,7 +2,7 @@
 layout: post
 title: "Write For Us"
 date: 2026-01-19
-author: "" 
+author: ""  
 ---
 
 ## 📢 Your Voice, A Part of the Universe! 🌌
