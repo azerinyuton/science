@@ -24,8 +24,5 @@ Our writer policy is simple: scientific accuracy and an engaging storytelling st
 
 **To submit your article or ask any questions, please contact us:**
 
-> 📧 **yusifmammedov001@gmail.com**
->📞 **+994 51 533 04 17**
-
----
-*Support our mission:* [☕ Buy Me a Coffee](https://www.buymeacoffee.com/thesymmetryofphysic)
+📧 **yusifmammedov001@gmail.com**
+📞 **+994 51 533 04 17**
